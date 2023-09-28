@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luganda Hymnal Update</title>
+</head>
+<body>
+    <script>
+        fetch("https://newlugandahymnal.onrender.com/checkUpdate")
+        .then(res=>{
+            if(res.ok){
+                return res.json();
+            }
+            else{
+                return {err:"failed!"}
+            }
+        }).then(res=>{
+            return {success:true,data:res}
+        }).catch(err=>{
+            console.log(err)
+            B4A.CallSub(errors,true,err.message)
+        });
+    </script>
+</body>
+</html>
